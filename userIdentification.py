@@ -1,26 +1,22 @@
 import csv
 
 file=open("DCoutput.csv","r")
-
 data=[]
 userCount=0
-heading=['user ips']
+heading='user ips'+'\n'
 
 output=open("UIoutput.csv","wb")
-wr=csv.writer(output,dialect='excel')
-wr.writerow(heading)
-
-co=0
+output.write(heading)
 
 for x in file:
-    if co==8:
-        break
     (a)=x.split(",")
-    print a
-    co+=1
+    data.append(a[0])
 
-print userCount
+data=list(set(data))
+
+print len(data)
 
 for x in data:
-    print x
+    output.write(x+'\n')
+
 
