@@ -20,7 +20,10 @@ userips=[]
 usercount=0
 count=0
 
-for x in data:
+for i in range(10):
+    print data[i]
+
+"""for x in data:
     if  x[0] not in userips:
         userips.append(x[0])
         usercount+=1
@@ -28,5 +31,5 @@ for x in data:
     print count
 
 print usercount
-
+"""
 #session Identification
