@@ -22,7 +22,11 @@ data=list(set(data))
 
 print len(data)
 
+k=0
+
 for x in data:
+    k+=1
+    print k
     output.write(x+"\n")
 
 
