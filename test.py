@@ -1,30 +1,25 @@
-x='[18/Jul/2011:03:35:52]'
-a='[18/Jul/2011:04:51:15]'
-y=x.split(':')
-a=a.split(':')
-temp=""
-temp2=""
-for i in range(len(y)):
-    if i == 0:
-        continue
-    if i==1:
-        temp = temp + y[i]
-        temp2 = temp2 + a[i]
-        continue
-    temp = temp +" "+y[i]
-    temp2=temp2+" "+a[i]
+from operator import itemgetter
 
-temp=temp.split(']')[0]
-temp2=temp2.split(']')[0]
-print temp,'\n',temp2
+a=[7,0,1]
+b=[8,5,2]
+c=[9,6,3]
 
-temp=temp.split(' ')
-temp2=temp2.split(' ')
-temp3=""
-for i in range(len(temp)):
-    if i==0:
-        temp3 += str(abs(int(temp[i]) - int(temp2[i])))
-        continue
-    temp3 += " "+ str(abs(int(temp[i]) - int(temp2[i])))
+file=open("tester.csv","wb")
 
-print temp3
+d=[]
+
+for i in range(0,len(a)):
+   temp=[]
+   temp.append(a[i])
+   temp.append(b[i])
+   temp.append(c[i])
+   d.append(temp)
+
+
+d=sorted(d,key=itemgetter(2))
+
+for i in d:
+    print i
+
+#for i in range(0,len(d)):
+    #file.write(str(d[i][0])+','+str(d[i][1])+','+str(d[i][2])+'\n')

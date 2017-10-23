@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 file=open("DCoutput.csv","r")
 
 userips=[]
@@ -44,10 +46,9 @@ def sub(prev,next):
         sessionid[prev]=session
         session+=1
 
-co=0
 for x in file:
     if co==0:
-        print co
+        #print co
         co+=1
     else:
         y=[]
@@ -61,5 +62,21 @@ for x in file:
             prev=userips.index(y[0])
             sub(prev,x.split(',')[1:2])
 
+d=[]
+
 for i in range(0,len(userips)):
-    output.write(str(userips[i])+','+str(timestamps[i])+','+str(sessionid[i])+'\n')
+    temp=[]
+    temp.append(userips[i])
+    temp.append(timestamps[i])
+    temp.append(sessionid[i])
+    d.append(temp)
+
+d=sorted(d,key=itemgetter(2))
+
+for i in range(10):
+    print d[i]
+
+
+for i in range(0,len(userips)):
+    output.write(str(d[i][0])+','+str(d[i][1])+','+str(d[i][2])+'\n')
+
