@@ -71,3 +71,9 @@ for i in test:
         max=test[i]
         label=i
 print i,max
+f=open('predict/'+i+".txt",'r')
+test=f.readlines()
+f.close()
+print "Possible Visiting Websites"
+for i in test:
+    print i.split("\n")[0]
